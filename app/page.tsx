@@ -12,6 +12,7 @@ import Footer from '@/components/sections/Footer'
 import BuilderRoot from '@/components/BuilderRoot'
 import StickyBar from '@/components/StickyBar'
 import { business } from '@/lib/business'
+import JsonLd from '@/components/JsonLd'
 
 export default function Page() {
   return (
@@ -31,6 +32,7 @@ export default function Page() {
       <Footer />
       <StickyBar email={business.email} />
       <BuilderRoot />
+      <JsonLd />
     </>
   )
 }

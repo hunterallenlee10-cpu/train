@@ -10,7 +10,7 @@ The plan, tokens and checklist for the train. purchase page concept. Source of t
 - [x] Phase 2: passes band, Block Math, `lib/pricing.ts` with tests
 - [x] Phase 3: how a block works, find the garage, trainers band, gift cards, Q and A, final band
 - [x] Phase 4: Block Builder, every button wired with pre-selects, honest last step, mobile sticky bar
-- [ ] Phase 5: SEO (modes, robots, sitemap, llms.txt, JSON-LD), link preview image, favicon, 404, SEO-LAUNCH.md
+- [x] Phase 5: SEO (modes, robots, sitemap, llms.txt, JSON-LD), link preview image, favicon, 404, SEO-LAUNCH.md
 - [ ] Phase 6: Lighthouse mobile and desktop, live and demo, on production builds
 - [ ] Review 2: fresh subagent juror on the full page plus a fact audit against section 1, fix once
 - [ ] Phase 7: final review against the checklist, commit, ready for Vercel as `train-ocmd-concept`
