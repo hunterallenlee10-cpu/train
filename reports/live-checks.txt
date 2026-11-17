@@ -1,0 +1,56 @@
+== GET / (live)
+HTTP/1.1 200 OK
+(no X-Robots-Tag line above means no header)
+
+== meta robots
+<meta name="robots" content="index, follow"/>
+
+== concept line present?
+0
+
+== robots.txt
+User-Agent: *
+Allow: /
+
+Host: http://localhost:3000
+Sitemap: http://localhost:3000/sitemap.xml
+
+== sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:3000/</loc>
+<lastmod>2026-11-17T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+</urlset>
+
+== llms.txt
+X-Content-Type-Options: nosniff
+content-type: text/markdown; charset=utf-8
+# train. (Train), Ocean City, MD
+
+> Private garage gym and personal training space in Ocean City, Maryland. Two-hour blocks, 8 people max per block, no class and no instructor.
+
+## Passes
+
+- Drop-In: $25 per person. A one-time 2 hour block for you to Train.
+- 3-Pack: $69 per person. For the Weekend Warriors in town.
+- Train Unlimited: $99 a month. Unlimited access, one flat monthly price. No GTFO fee ever. I mean it.
+- Guests: members can add a guest to their block for $25.
+
+## Visit
+
+- Address: 108 142nd St., Unit C, Ocean City, MD 21842. Bayside, in a newly built garage between Coastal Highway and Sinepuxent Ave.
+- Blocks: 4:00am to 10:00pm, nine 2-hour blocks a day.
+- Parking: Spots right out front, then Sinepuxent Ave.
+- Email: info@trainocmd.com
+
+## Links
+
+- [Buy a pass and book a block](http://localhost:3000/)
+- [Booking calendar](https://www.trainocmd.com/schedule)
+- [Member log-in](https://trainocmd.com/login)
+== canonical
+<link rel="canonical" href="http://localhost:3000"/>

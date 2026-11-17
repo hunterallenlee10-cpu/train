@@ -98,6 +98,8 @@ export default function Hero() {
               width={2500}
               height={1875}
               preload
+              fetchPriority="high"
+              quality={70}
               sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, 100vw"
               className="hero-photo absolute inset-0 h-full w-full object-cover"
             />

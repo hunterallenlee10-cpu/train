@@ -23,7 +23,7 @@ const AI_CRAWLERS = [
 
 export default function robots(): MetadataRoute.Robots {
   if (IS_LIVE) {
-    return { rules: [{ userAgent: '*', allow: '/' }], sitemap: `${SITE_URL}/sitemap.xml`, host: SITE_URL }
+    return { rules: [{ userAgent: '*', allow: '/' }], sitemap: `${SITE_URL}/sitemap.xml` }
   }
   return {
     rules: [

@@ -1,39 +1,27 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+
+const DoorLifter = lazy(() => import('./DoorLifter'))
 
 /**
  * "Door up". The door panel is server-rendered over photo 01 and is only visible when JS runs
  * (see .door in globals.css). Once the photo has loaded and the frame is on screen, the door rolls
  * up and out of the frame in 1.1s with an ease-out, once. Reduced motion: the door never shows.
- * motion is imported lazily so it never delays the photo or the first paint.
+ * The motion code is loaded lazily at that moment, so it never delays the photo or the first paint.
  */
 export default function GarageDoor({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null)
+  const [door, setDoor] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
-    const door = ref.current?.querySelector<HTMLElement>('[data-door]')
+    const el = ref.current?.querySelector<HTMLElement>('[data-door]')
     const frame = ref.current?.closest<HTMLElement>('[data-door-frame]')
-    if (!door || !frame) return
+    if (!el || !frame) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     // Hydrated: cancel the CSS failsafe, this component owns the door now.
-    door.style.animation = 'none'
+    el.style.animation = 'none'
     let cancelled = false
-    let started = false
-
-    const lift = async () => {
-      if (started || cancelled) return
-      started = true
-      try {
-        const { animate } = await import('motion/react')
-        if (cancelled) return
-        await animate(door, { y: '-101%' }, { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 })
-      } catch {
-        door.style.transition = 'transform 1.1s cubic-bezier(0.22, 1, 0.36, 1)'
-        door.style.transform = 'translateY(-101%)'
-      }
-      if (!cancelled) door.style.visibility = 'hidden'
-    }
 
     const img = frame.querySelector('img')
     const imageReady = new Promise<void>((resolve) => {
@@ -54,16 +42,26 @@ export default function GarageDoor({ children }: { children: React.ReactNode }) 
       )
       io.observe(frame)
     })
-    Promise.all([imageReady, inView]).then(lift)
-
+    Promise.all([imageReady, inView]).then(() => {
+      if (!cancelled) setDoor(el)
+    })
     return () => {
       cancelled = true
     }
   }, [])
 
+  const done = useCallback(() => {
+    ref.current?.querySelector<HTMLElement>('[data-door]')?.style.setProperty('visibility', 'hidden')
+  }, [])
+
   return (
     <div ref={ref} className="contents">
       {children}
+      {door ? (
+        <Suspense fallback={null}>
+          <DoorLifter door={door} onDone={done} />
+        </Suspense>
+      ) : null}
     </div>
   )
 }
