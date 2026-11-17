@@ -12,7 +12,7 @@ The plan, tokens and checklist for the train. purchase page concept. Source of t
 - [x] Phase 4: Block Builder, every button wired with pre-selects, honest last step, mobile sticky bar
 - [x] Phase 5: SEO (modes, robots, sitemap, llms.txt, JSON-LD), link preview image, favicon, 404, SEO-LAUNCH.md
 - [x] Phase 6: Lighthouse mobile and desktop, live and demo, on production builds
-- [ ] Review 2: fresh subagent juror on the full page plus a fact audit against section 1, fix once
+- [x] Review 2: juror scored the full page 74/100 (blank photos were a capture artifact of the opacity reveal, now transform-only). Fixed: phone mural band, builder started blocks shown as "Started" not struck, availability line moved up, day-chip scroll cue, removed alternateName, founder and InStock from JSON-LD, gift card wording, request grammar
 - [ ] Phase 7: final review against the checklist, commit, ready for Vercel as `train-ocmd-concept`
 
 After every phase: `npm run check`, screenshots at 1440 and 375, look, fix the three weakest things, commit.

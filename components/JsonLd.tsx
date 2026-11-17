@@ -14,7 +14,6 @@ export function buildJsonLd() {
       price: p.price!.toFixed(2),
       priceCurrency: 'USD',
       url: p.checkoutUrl,
-      availability: 'https://schema.org/InStock',
       ...(id === 'unlimited'
         ? {
             priceSpecification: {
@@ -34,13 +33,11 @@ export function buildJsonLd() {
     '@type': 'ExerciseGym',
     '@id': `${SITE_URL}/#gym`,
     name: business.wordmark,
-    alternateName: `${business.name} OCMD`,
     description: business.description,
     url: abs('/'),
     logo: abs('/images/logo-black.png'),
     image: [abs('/images/raw/01-GARAGE-DOOR-OPEN-exterior-BEST.jpg'), abs('/og-image.png')],
     email: business.email,
-    founder: { '@type': 'Person', name: business.owner },
     address: {
       '@type': 'PostalAddress',
       streetAddress: a.street,

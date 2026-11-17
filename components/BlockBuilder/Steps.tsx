@@ -33,7 +33,7 @@ export function StepPass({ order, set }: { order: Order; set: (o: Partial<Order>
               <span>
                 <span className="block font-display text-h3 uppercase leading-none">{p.name}</span>
                 <span className={`mt-1 block text-label ${on ? 'text-ink' : 'text-muted'}`}>
-                  {id === 'gift' ? 'For someone else. Amount chosen at checkout.' : p.line}
+                  {id === 'gift' ? 'For someone else.' : p.line}
                 </span>
               </span>
               <span className="shrink-0 text-right">
@@ -86,7 +86,7 @@ export function StepBlock({ order, set, days, hour }: { order: Order; set: (o: P
             return (
               <label
                 key={d.key}
-                className={`${choiceBase} min-h-14 min-w-[88px] shrink-0 flex-col items-start justify-center gap-0 px-3 py-2 ${on ? choiceOn : choiceOff}`}
+                className={`${choiceBase} min-h-14 min-w-[76px] shrink-0 flex-col items-start justify-center gap-0 px-3 py-2 ${on ? choiceOn : choiceOff}`}
               >
                 <input
                   type="radio"
@@ -108,15 +108,16 @@ export function StepBlock({ order, set, days, hour }: { order: Order; set: (o: P
       </fieldset>
       <fieldset className="mt-5">
         <legend className="font-bold">Block</legend>
-        <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
+        <p className="mt-1 text-label text-muted">{business.maxPerBlock} spots per block. Live availability is checked at checkout.</p>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
           {blocks.map((b) => {
             const started = order.day ? hasStarted(order.day.index, b.start, hour) : false
             const on = order.block === b.start
             return (
               <label
                 key={b.start}
-                className={`${choiceBase} min-h-14 w-full justify-center font-display text-[1.25rem] uppercase ${
-                  started ? 'cursor-not-allowed border-line bg-paper text-muted line-through' : on ? choiceOn : choiceOff
+                className={`${choiceBase} min-h-14 w-full flex-col justify-center gap-0 font-display text-[1.25rem] uppercase ${
+                  started ? 'cursor-not-allowed border-line bg-paper text-muted' : on ? choiceOn : choiceOff
                 }`}
               >
                 <input
@@ -128,14 +129,13 @@ export function StepBlock({ order, set, days, hour }: { order: Order; set: (o: P
                   onChange={() => set({ block: b.start })}
                   className="sr-only"
                 />
-                {b.label}
-                {started ? <span className="sr-only"> (already started today)</span> : null}
+                <span className="leading-tight">{b.label}</span>
+                {started ? <span className="font-sans text-label font-medium normal-case">Started</span> : null}
               </label>
             )
           })}
         </div>
       </fieldset>
-      <p className="mt-5 text-muted">{business.maxPerBlock} spots per block. Live availability is checked at checkout.</p>
     </div>
   )
 }

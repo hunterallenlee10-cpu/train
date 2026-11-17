@@ -1,6 +1,6 @@
 // Every fact on the page lives here.
 // Source: trainocmd.com, read on 17 November 2026, plus Evan's own email (BUILD-SPEC.md section 1).
-// Anything assumed carries a DRAFT comment. Live builds fail while DRAFT markers remain.
+// Anything assumed is marked as a draft (see SEO-LAUNCH.md). Live builds fail while those markers remain.
 
 export type PassId = 'dropin' | 'threepack' | 'unlimited' | 'gift'
 
@@ -113,7 +113,7 @@ export const passes: Record<PassId, Pass> = {
     shortName: 'Gift card',
     price: null, // DRAFT: confirm gift card amounts (not published)
     unit: '',
-    line: 'Amount chosen at checkout.',
+    line: 'Amounts are not listed on this page yet.',
     checkoutUrl: CURRENT_CHECKOUT, // DRAFT: replace with the Mariana Tek product link for each pass
   },
 }

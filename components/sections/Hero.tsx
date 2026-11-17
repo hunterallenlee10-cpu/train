@@ -41,7 +41,7 @@ export default function Hero() {
             <span className="eyebrow block text-muted">
               Private gym passes · Ocean City, MD
             </span>{' '}
-            <span className="mt-3 block font-display text-display uppercase md:mt-4">
+            <span className="mt-3 block font-display text-display uppercase md:mt-4 lg:max-xl:text-[clamp(3rem,7.6vw,7.5rem)]">
               Pick a pass.{' '}
               <br />
               Book a{' '}

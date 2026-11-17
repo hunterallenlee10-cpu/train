@@ -16,7 +16,7 @@ export default function Nav() {
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded focus:bg-ink focus:px-4 focus:py-3 focus:text-chalk"
       >
-        Skip to the passes and prices
+        Skip to main content
       </a>
       <nav aria-label="Main" className="wrap flex h-16 items-center gap-6">
         <a href="#top" aria-label="train., back to the top" className="-my-1 flex shrink-0 items-center">

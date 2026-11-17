@@ -16,7 +16,7 @@ export const blockLabel = (start: number | null) => blocks.find((b) => b.start =
 export const totalLine = (o: Order) => {
   if (!o.pass) return ''
   const p = passes[o.pass]
-  if (o.pass === 'gift') return 'Amount chosen at checkout'
+  if (o.pass === 'gift') return 'Gift card amount not listed on this page'
   if (o.pass === 'unlimited') {
     if (!o.guests) return `${money(p.price!)} a month`
     const g = o.guests * business.guestPrice
@@ -38,6 +38,9 @@ export const requestText = (o: Order) => {
   const p = passes[o.pass]
   if (o.pass === 'gift') return `Hi Evan, I'd like to buy a Train gift card.`
   const who = whoLine(o).toLowerCase()
-  const when = o.day && o.block !== null ? ` for the ${blockLabel(o.block)} block on ${o.day.long}` : ''
+  const when =
+    o.day && o.block !== null
+      ? ` for the ${blockLabel(o.block)} block ${o.day.index === 0 ? o.day.long : `on ${o.day.long}`}`
+      : ''
   return `Hi Evan, I'd like to buy a ${p.name} (${who})${when}. Total shown on the page: ${totalLine(o)}, plus tax if any.`
 }

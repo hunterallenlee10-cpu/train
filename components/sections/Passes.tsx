@@ -62,14 +62,14 @@ export default function Passes() {
             Every block is two hours. Eight people max.
           </p>
 
-          <ul className="mt-10 grid gap-5 md:grid-cols-3 md:gap-6 lg:mt-14">
+          <ul className="mt-10 grid gap-5 md:grid-cols-2 md:gap-6 lg:mt-14 lg:grid-cols-3">
             {cards.map((c) => {
               const p = passes[c.id]
               return (
                 <li
                   key={c.id}
                   className={`relative flex flex-col rounded-[6px] bg-rubber p-6 md:p-7 lg:p-8 ${
-                    c.marked ? 'order-first border-2 border-spray md:order-none' : 'border border-rubber-line'
+                    c.marked ? 'order-first border-2 border-spray md:col-span-2 lg:order-none lg:col-span-1' : 'border border-rubber-line'
                   }`}
                 >
                   {c.marked ? (
