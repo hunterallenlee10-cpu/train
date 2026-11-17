@@ -2,6 +2,12 @@ import Nav from '@/components/sections/Nav'
 import Hero from '@/components/sections/Hero'
 import Passes from '@/components/sections/Passes'
 import BlockMathSection from '@/components/sections/BlockMathSection'
+import HowItWorks from '@/components/sections/HowItWorks'
+import FindTheGarage from '@/components/sections/FindTheGarage'
+import Trainers from '@/components/sections/Trainers'
+import GiftCards from '@/components/sections/GiftCards'
+import QandA from '@/components/sections/QandA'
+import FinalBand from '@/components/sections/FinalBand'
 import Footer from '@/components/sections/Footer'
 
 export default function Page() {
@@ -12,6 +18,12 @@ export default function Page() {
         <Hero />
         <Passes />
         <BlockMathSection />
+        <HowItWorks />
+        <FindTheGarage />
+        <Trainers />
+        <GiftCards />
+        <QandA />
+        <FinalBand />
       </main>
       <Footer />
     </>

@@ -33,6 +33,17 @@ for (const w of widths) {
   })
   const page = await ctx.newPage()
   await page.goto(url, { waitUntil: 'networkidle' })
+  if (opt.full) {
+    // Walk down the page so lazy images load, then return to the top.
+    await page.evaluate(async () => {
+      for (let y = 0; y < document.documentElement.scrollHeight; y += 500) {
+        window.scrollTo(0, y)
+        await new Promise((r) => setTimeout(r, 120))
+      }
+      window.scrollTo(0, 0)
+    })
+    await page.waitForLoadState('networkidle')
+  }
   if (opt.selector) {
     await page.locator(String(opt.selector)).first().scrollIntoViewIfNeeded()
   }

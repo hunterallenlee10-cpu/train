@@ -8,7 +8,7 @@ The plan, tokens and checklist for the train. purchase page concept. Source of t
 - [x] Phase 1: scaffold, tokens, fonts, palette board, nav, hero with garage door, footer (mobile first)
 - [x] Review 1: juror scored the hero 71/100. Fixed: full-bleed phone photo and door waits for 60% visibility, square-edged frame cropped toward the racks, price row on an ink plate, tighter spray stroke
 - [x] Phase 2: passes band, Block Math, `lib/pricing.ts` with tests
-- [ ] Phase 3: how a block works, find the garage, trainers band, gift cards, Q and A, final band
+- [x] Phase 3: how a block works, find the garage, trainers band, gift cards, Q and A, final band
 - [ ] Phase 4: Block Builder, every button wired with pre-selects, honest last step, mobile sticky bar
 - [ ] Phase 5: SEO (modes, robots, sitemap, llms.txt, JSON-LD), link preview image, favicon, 404, SEO-LAUNCH.md
 - [ ] Phase 6: Lighthouse mobile and desktop, live and demo, on production builds
