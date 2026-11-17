@@ -1,5 +1,7 @@
 # train. purchase page (concept)
 
+Live demo: https://train-ocmd-concept.vercel.app (demo mode: noindex, nofollow)
+
 A front-end concept of the purchase page for train., a private garage gym in Ocean City, MD. Next.js 16, React 19, Tailwind CSS 4. No backend.
 
 - Spec: `BUILD-SPEC.md`. Plan and checklist: `implementation_kickstart.md`. Launch steps: `SEO-LAUNCH.md`.
