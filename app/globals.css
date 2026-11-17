@@ -343,3 +343,8 @@ summary::-webkit-details-marker {
   cursor: not-allowed;
   transform: none;
 }
+
+/* Block Builder dialog */
+.block-builder::backdrop {
+  background: oklch(19.3% 0.0061 122 / 0.72);
+}

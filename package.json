@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check": "node scripts/check.mjs",
-    "og": "node scripts/make-og.mjs"
+    "og": "node scripts/make-og.mjs",
+    "flow": "node scripts/flow.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
