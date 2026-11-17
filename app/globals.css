@@ -1,0 +1,284 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Colour tokens. OKLCH with the source hex beside each. */
+  --color-paper: oklch(94.3% 0.0083 91.5); /* #EEECE6 */
+  --color-chalk: oklch(97.6% 0.0054 95.1); /* #F8F7F3 */
+  --color-line: oklch(85.7% 0.0111 95.2); /* #D2D0C8 */
+  --color-ink: oklch(19.3% 0.0061 122); /* #141512 */
+  --color-rubber: oklch(25.4% 0.0075 118.3); /* #22231F */
+  --color-rubber-line: oklch(33% 0.008 118); /* #33342F, 1px borders inside the dark band */
+  --color-spray: oklch(87.3% 0.2765 142.6); /* #39FF35 */
+  --color-spray-hover: oklch(79% 0.2544 142.5); /* #2BE027 */
+  --color-muted: oklch(45% 0.0112 113.4); /* #55564F */
+  --color-muted-on-ink: oklch(73.5% 0.0114 112.5); /* #A9AAA2 */
+  --color-deep-green: oklch(46% 0.1487 142.5); /* #0E6B0C */
+  --color-error: oklch(50.1% 0.1783 28.7); /* #B3261E */
+
+  --font-display: var(--font-anton), 'Arial Narrow', Impact, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Seven-step type scale. Each ceiling is at most 2.5x its floor. */
+  --text-label: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --text-label--line-height: 1.35;
+  --text-body: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --text-body--line-height: 1.55;
+  --text-lead: clamp(1.125rem, 1.06rem + 0.3vw, 1.3125rem);
+  --text-lead--line-height: 1.5;
+  --text-h3: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  --text-h3--line-height: 1.05;
+  --text-h2: clamp(2.5rem, 1.85rem + 3vw, 4.5rem);
+  --text-h2--line-height: 0.98;
+  --text-h1: clamp(2.75rem, 1.9rem + 4vw, 5.5rem);
+  --text-h1--line-height: 0.98;
+  --text-display: clamp(3rem, 13vw, 7.5rem);
+  --text-display--line-height: 0.96;
+
+  --radius-card: 6px;
+  --ease-out-door: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 80px;
+  }
+  @media (max-width: 767px) {
+    /* Keep focused elements clear of the sticky nav and the sticky bottom bar. */
+    html {
+      scroll-padding-top: 72px;
+      scroll-padding-bottom: 96px;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    background-color: var(--color-paper);
+    background-image: url('/images/speckle.png');
+    background-size: 180px 180px;
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus, var(--color-ink));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-spray);
+    color: var(--color-ink);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .on-ink {
+    --focus: var(--color-spray);
+    background-color: var(--color-ink);
+    color: var(--color-chalk);
+  }
+  .wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 32px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .wrap {
+      padding-inline: 48px;
+    }
+  }
+  .section {
+    padding-block: 72px;
+  }
+  @media (min-width: 1024px) {
+    .section {
+      padding-block: 112px;
+    }
+  }
+  .eyebrow {
+    font-size: var(--text-label);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .measure {
+    max-width: 66ch;
+  }
+
+  /* Buttons. 48px tall, so every tap target clears 44px. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.75rem 1.375rem;
+    border-radius: var(--radius-card);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      border-color 160ms ease,
+      transform 120ms ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .btn:active {
+    transform: translateY(1px) scale(0.985);
+  }
+  .btn-primary {
+    background: var(--color-spray);
+    color: var(--color-ink);
+    border: 2px solid var(--color-ink);
+  }
+  .btn-primary:hover {
+    background: var(--color-spray-hover);
+  }
+  .on-ink .btn-primary {
+    border-color: var(--color-spray);
+  }
+  .on-ink .btn-primary:hover {
+    border-color: var(--color-spray-hover);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-ink);
+    border: 2px solid var(--color-ink);
+  }
+  .btn-ghost:hover {
+    background: var(--color-ink);
+    color: var(--color-chalk);
+  }
+  .on-ink .btn-ghost {
+    color: var(--color-chalk);
+    border-color: var(--color-chalk);
+  }
+  .on-ink .btn-ghost:hover {
+    background: var(--color-chalk);
+    color: var(--color-ink);
+  }
+  .link {
+    color: var(--color-deep-green);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .link:hover {
+    color: var(--color-ink);
+  }
+  .on-ink .link {
+    color: var(--color-chalk);
+    text-decoration-color: var(--color-spray);
+  }
+  .on-ink .link:hover {
+    color: var(--color-spray);
+  }
+  .card {
+    background: var(--color-chalk);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+  }
+  .tag-spray {
+    display: inline-block;
+    background: var(--color-spray);
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: var(--text-label);
+    line-height: 1.25;
+    padding: 0.375rem 0.625rem;
+    border-radius: 4px;
+  }
+}
+
+/* The garage door overlay only exists when JS runs and motion is welcome.
+   Without JS, or with reduced motion, the photo is simply shown. */
+.door {
+  display: none;
+}
+.js .door {
+  display: block;
+  /* Failsafe: if the script never lifts it, CSS does after 4s. */
+  animation: door-failsafe 600ms var(--ease-out-door) 4s forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .door {
+    display: none;
+  }
+}
+@keyframes door-failsafe {
+  to {
+    transform: translateY(-101%);
+  }
+}
+
+/* Plain CSS photo reveals: support check plus reduced-motion check. Photos only, never text or buttons. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0.001;
+    transform: translateY(28px) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Native details accordion: hide default marker. */
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Photo 01 in the hero. Phone: about 4:3, zoomed from the right so the pickup at the far left is out of frame.
+   Desktop: tall 4:5 frame, positioned right of the pickup. */
+.hero-photo {
+  object-position: 100% 45%;
+  transform: scale(1.28);
+  transform-origin: 100% 42%;
+}
+@media (min-width: 1024px) {
+  .hero-photo {
+    object-position: 74% 50%;
+    transform: none;
+  }
+}

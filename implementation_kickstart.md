@@ -5,7 +5,7 @@ The plan, tokens and checklist for the train. purchase page concept. Source of t
 ## Plan
 - [x] First actions: BUILD-SPEC.md, CLAUDE.md, git, this file
 - [x] Section 0: photos downloaded from Drive into `public/images/raw/` (7 photos, 2 logos), every image viewed
-- [ ] Phase 1: scaffold, tokens, fonts, palette board, nav, hero with garage door, footer (mobile first)
+- [x] Phase 1: scaffold, tokens, fonts, palette board, nav, hero with garage door, footer (mobile first)
 - [ ] Review 1: fresh subagent juror on hero screenshots, fix the three weakest things once
 - [ ] Phase 2: passes band, Block Math, `lib/pricing.ts` with tests
 - [ ] Phase 3: how a block works, find the garage, trainers band, gift cards, Q and A, final band
