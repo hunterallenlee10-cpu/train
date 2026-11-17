@@ -17,3 +17,14 @@ Demo mode SEO is 69 on purpose: the only failing check is `is-crawlable` ("Page 
 Mobile LCP: the hero photo paints at 129 to 194ms unthrottled. The default simulated profile adds the framework JavaScript (React DOM and the App Router runtime, about 160KB compressed) to the LCP path, which is why it reads 2.5 to 3.1s across runs. With real slow 4G and 4x CPU throttling applied, LCP is 1.8s.
 
 Tap response (event timing, Moto G4 profile, 4x CPU throttle, 10 interactions including the first Block Builder open): worst 152ms.
+
+## Live on Vercel (https://train-ocmd-concept.vercel.app, demo mode, Vercel CDN, no cache warming)
+
+| Run | Performance | Accessibility | Best Practices | SEO | Agentic Browsing | LCP | CLS | TBT |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Mobile | 92 | 100 | 100 | 69 | 100 | 2.2 s | 0 | 320 ms |
+| Mobile, repeat 1 | 95 | 100 | 100 | 69 | 100 | 2.2 s | 0 | 240 ms |
+| Mobile, repeat 2 | 98 | 100 | 100 | 69 | 100 | 1.8 s | 0 | 150 ms |
+| Desktop | 100 | 100 | 100 | 69 | 100 | 0.5 s | 0 | 20 ms |
+
+SEO 69 is the intended noindex in demo mode. `npm run check` 25/25 and `npm run flow` 60/60 against the live URL.
