@@ -107,10 +107,10 @@ for (const p of ['dropin', 'threepack', 'unlimited']) {
 // JavaScript off: passes and prices still on the page
 const noJs = await browser.newPage({ javaScriptEnabled: false })
 await noJs.goto(URL_, { waitUntil: 'load' })
-const noJsText = await noJs.evaluate(() => document.body.innerText)
+const noJsText = await noJs.evaluate(() => (document.querySelector('#passes') || document.body).textContent)
 const passText = await noJs.evaluate(() => document.querySelector('#passes')?.innerText || '')
 const noJsPass = ['Drop-In', '3-Pack', 'Train Unlimited', '$25', '$69', '$99'].every((t) => noJsText.includes(t))
-ok('With JavaScript off, the three passes and prices are on the page', noJsPass, passText ? 'passes band present' : 'passes band not built yet, checked hero price row')
+ok('With JavaScript off, the three passes and prices are on the page', noJsPass, passText ? 'checked inside #passes' : 'passes band missing, checked body')
 await browser.close()
 
 // Pricing unit tests

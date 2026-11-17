@@ -5,6 +5,7 @@ const isLive = process.env.NEXT_PUBLIC_SITE_MODE === 'live'
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   agentRules: false,
+  devIndicators: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     qualities: [70, 75],

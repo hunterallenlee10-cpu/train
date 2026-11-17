@@ -50,7 +50,7 @@ export default function GarageDoor({ children }: { children: React.ReactNode }) 
             resolve()
           }
         },
-        { threshold: 0.35 },
+        { threshold: 0.6 },
       )
       io.observe(frame)
     })

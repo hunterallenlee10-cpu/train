@@ -6,8 +6,8 @@ The plan, tokens and checklist for the train. purchase page concept. Source of t
 - [x] First actions: BUILD-SPEC.md, CLAUDE.md, git, this file
 - [x] Section 0: photos downloaded from Drive into `public/images/raw/` (7 photos, 2 logos), every image viewed
 - [x] Phase 1: scaffold, tokens, fonts, palette board, nav, hero with garage door, footer (mobile first)
-- [ ] Review 1: fresh subagent juror on hero screenshots, fix the three weakest things once
-- [ ] Phase 2: passes band, Block Math, `lib/pricing.ts` with tests
+- [x] Review 1: juror scored the hero 71/100. Fixed: full-bleed phone photo and door waits for 60% visibility, square-edged frame cropped toward the racks, price row on an ink plate, tighter spray stroke
+- [x] Phase 2: passes band, Block Math, `lib/pricing.ts` with tests
 - [ ] Phase 3: how a block works, find the garage, trainers band, gift cards, Q and A, final band
 - [ ] Phase 4: Block Builder, every button wired with pre-selects, honest last step, mobile sticky bar
 - [ ] Phase 5: SEO (modes, robots, sitemap, llms.txt, JSON-LD), link preview image, favicon, 404, SEO-LAUNCH.md

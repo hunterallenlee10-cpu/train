@@ -277,8 +277,69 @@ summary::-webkit-details-marker {
   transform-origin: 100% 42%;
 }
 @media (min-width: 1024px) {
+  /* Tall frame: zoom a little toward the racks and plates so the parking lot does not fill the bottom third. */
   .hero-photo {
     object-position: 74% 50%;
-    transform: none;
+    transform: scale(1.14);
+    transform-origin: 68% 28%;
   }
+}
+
+/* Photo 03 beside Block Math. Desktop: tall 2:3, anchored bottom right and nudged so the window stickers
+   at the top left fall out of frame. Phone: 4:3 band across the bike, dumbbells and mural. */
+.photo-03 {
+  object-position: 50% 52%;
+}
+@media (min-width: 1024px) {
+  .photo-03 {
+    object-position: 100% 100%;
+    transform: scale(1.07);
+    transform-origin: 100% 100%;
+  }
+}
+
+/* Block Math slider: a real input type="range". Ink track, spray thumb with an ink edge (a filled shape). */
+.block-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  touch-action: pan-y;
+}
+.block-range::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-ink);
+}
+.block-range::-moz-range-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-ink);
+}
+.block-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 34px;
+  height: 34px;
+  margin-top: -13px;
+  border-radius: 50%;
+  background: var(--color-spray);
+  border: 3px solid var(--color-ink);
+  cursor: grab;
+}
+.block-range::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-spray);
+  border: 3px solid var(--color-ink);
+  cursor: grab;
+}
+.block-range:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.08);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
 }

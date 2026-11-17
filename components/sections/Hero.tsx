@@ -11,7 +11,7 @@ function SprayStroke() {
       aria-hidden="true"
       viewBox="0 0 400 120"
       preserveAspectRatio="none"
-      className="pointer-events-none absolute -left-[6%] top-[40%] -z-10 h-[54%] w-[112%] -rotate-[2deg] fill-spray"
+      className="pointer-events-none absolute -left-[3%] top-[46%] -z-10 h-[46%] w-[100%] -rotate-[2deg] fill-spray"
     >
       <path d="M14 30c30-12 82-16 140-15 62 1 122-4 176-6 30-1 54 1 62 9 8 9 6 24 2 36-4 14-2 26-10 34-10 10-36 9-70 10-58 2-118 4-176 6-44 2-86 4-112-2-18-4-24-16-24-30 0-16 0-32 12-42z" />
       <path d="M300 92c3 0 4 3 4 7v8c0 4 3 6 3 8a4 4 0 0 1-8 0c0-2 2-4 2-8v-9c-1-3-1-6-1-6z" />
@@ -35,7 +35,7 @@ const priceRow = [
 export default function Hero() {
   return (
     <section id="top" aria-labelledby="hero-title" className="relative scroll-mt-20">
-      <div className="wrap grid gap-8 pb-14 pt-7 md:pt-10 lg:grid-cols-12 lg:gap-12 lg:pb-24 lg:pt-16">
+      <div className="wrap grid gap-8 pb-12 pt-7 md:pt-10 lg:grid-cols-12 lg:gap-12 lg:pb-20 lg:pt-14">
         <div className="flex flex-col lg:col-span-7 lg:justify-center">
           <h1 id="hero-title" className="font-sans">
             <span className="eyebrow block text-muted">
@@ -64,18 +64,21 @@ export default function Hero() {
             </a>
           </div>
 
-          <ul aria-label="Pass prices" className="mt-6 grid max-w-xl grid-cols-[1fr_1fr_1.4fr] border-y-2 border-ink md:mt-9">
+          <ul
+            aria-label="Pass prices"
+            className="on-ink mt-6 grid max-w-xl grid-cols-[1fr_1fr_1.4fr] overflow-hidden rounded-[6px] md:mt-9"
+          >
             {priceRow.map((p, i) => (
-              <li key={p.pass} className={i > 0 ? 'border-l border-line' : ''}>
+              <li key={p.pass} className={i > 0 ? 'border-l border-rubber-line' : ''}>
                 <BuilderButton
                   pass={p.pass}
-                  className="group flex min-h-[76px] w-full flex-col items-start justify-center px-2.5 py-2 text-left transition-colors hover:bg-chalk md:px-5"
+                  className="group flex min-h-[78px] w-full flex-col items-start justify-center px-3 py-2.5 text-left transition-colors hover:bg-rubber md:px-5"
                 >
                   <span className="flex items-baseline gap-1 whitespace-nowrap">
-                    <span className="font-display text-[2rem] leading-none md:text-[2.5rem]">{p.price}</span>
-                    {p.unit ? <span className="text-label font-medium text-muted">{p.unit}</span> : null}
+                    <span className="font-display text-[2rem] leading-none text-chalk md:text-[2.5rem]">{p.price}</span>
+                    {p.unit ? <span className="text-label font-medium text-muted-on-ink">{p.unit}</span> : null}
                   </span>
-                  <span className="mt-1 text-label font-bold underline decoration-line decoration-2 underline-offset-4 group-hover:decoration-ink">
+                  <span className="mt-1 text-label font-bold text-chalk underline decoration-muted-on-ink decoration-2 underline-offset-4 group-hover:decoration-spray">
                     {p.label}
                   </span>
                 </BuilderButton>
@@ -84,10 +87,10 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="-mx-4 md:mx-0 lg:col-span-5">
           <div
             data-door-frame=""
-            className="relative aspect-[4/3] overflow-hidden rounded-[6px] border-2 border-ink bg-ink lg:aspect-[4/5]"
+            className="relative aspect-[4/3] overflow-hidden border-y-[3px] border-ink bg-ink md:border-[3px] lg:aspect-[4/5]"
           >
             <Image
               src="/images/raw/01-GARAGE-DOOR-OPEN-exterior-BEST.jpg"
@@ -114,7 +117,7 @@ export default function Hero() {
               </div>
             </GarageDoor>
           </div>
-          <p className="mt-3 text-label text-muted">
+          <p className="mt-3 border-l-[3px] border-ink px-4 text-label text-muted md:px-3">
             108 142nd St., Unit C, Ocean City. The door is up when the weather is right.
           </p>
         </div>

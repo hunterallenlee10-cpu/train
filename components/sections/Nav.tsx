@@ -11,7 +11,7 @@ export const anchors = [
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-[2px]">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded focus:bg-ink focus:px-4 focus:py-3 focus:text-chalk"
