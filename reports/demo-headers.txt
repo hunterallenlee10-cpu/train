@@ -1,30 +1,23 @@
 == GET / (demo)
 HTTP/1.1 200 OK
 X-Content-Type-Options: nosniff
-Referrer-Policy: strict-origin-when-cross-origin
 X-Robots-Tag: noindex, nofollow
-Cache-Control: s-maxage=31536000
 Content-Type: text/html; charset=utf-8
 
-== GET hero image (demo)
-/_next/image?url=%2Fimages%2Fraw%2F01-GARAGE-DOOR-OPEN-exterior-BEST.jpg&w=256&q=70
+== GET /_next/image?url=%2Fimages%2Fraw%2F01-GARAGE-DOOR-OPEN-exterior-BEST.jpg&w=256&q=70 (demo)
 HTTP/1.1 200 OK
 X-Content-Type-Options: nosniff
 X-Robots-Tag: noindex, nofollow
-Cache-Control: public, max-age=14400, must-revalidate
 Content-Type: image/avif
 
-== raw photo file
+== GET /images/raw/02-interior-rack-lockers-climbing-rope.jpg (demo)
 HTTP/1.1 200 OK
 X-Content-Type-Options: nosniff
 X-Robots-Tag: noindex, nofollow
 Content-Type: image/jpeg
 
-== /sitemap.xml, /llms.txt, /robots.txt
 /sitemap.xml 404
 /llms.txt 404
 /robots.txt 200
-/nope 404
-
-== meta robots
+/does-not-exist 404
 <meta name="robots" content="noindex, nofollow"/>

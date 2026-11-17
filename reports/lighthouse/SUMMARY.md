@@ -1,20 +1,19 @@
 # Lighthouse results
 
-Lighthouse 13.6.0, Chromium from Playwright, production builds (`next build` then `next start`) on this machine, 17 November 2026. Image optimizer cache warmed once before each audit, as a deployed CDN would serve it. Raw reports are regenerated with `scripts/lighthouse.sh <label>` and are not committed.
+Lighthouse 13.6.0, Chromium from Playwright, production builds (`next build` then `next start`) on this machine, 17 November 2026, final build. Live mode was built locally with NEXT_PUBLIC_SITE_MODE=live and NEXT_PUBLIC_SITE_URL=http://localhost:3000. The image optimizer cache was warmed once before each audit, as a deployed CDN would serve it. Raw reports are regenerated with `scripts/lighthouse.sh <label>` and are not committed.
 
 | Run | Performance | Accessibility | Best Practices | SEO | Agentic Browsing | LCP | CLS | TBT |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Live, mobile | 96 | 100 | 100 | 100 | 100 | 2.6 s | 0 | 80 ms |
-| Live, mobile, repeat 1 | 94 | 100 | 100 | 100 | 100 | 3.0 s | 0 | 90 ms |
-| Live, mobile, repeat 2 | 97 | 100 | 100 | 100 | 100 | 2.4 s | 0 | 70 ms |
-| Live, mobile, repeat 3 | 92 | 100 | 100 | 100 | 100 | 3.1 s | 0 | 150 ms |
-| Live, mobile, applied throttling (real slow 4G, 4x CPU) | 97 | 100 | 100 | 100 | 100 | 1.8 s | 0 | 140 ms |
+| Live, mobile | 96 | 100 | 100 | 100 | 100 | 2.5 s | 0 | 140 ms |
+| Live, mobile, repeat 1 | 93 | 100 | 100 | 100 | 100 | 3.1 s | 0 | 90 ms |
+| Live, mobile, repeat 2 | 95 | 100 | 100 | 100 | 100 | 3.0 s | 0 | 50 ms |
+| Live, mobile, applied throttling (real slow 4G, 4x CPU) | 96 | 100 | 100 | 100 | 100 | 1.8 s | 0 | 180 ms |
 | Live, desktop | 100 | 100 | 100 | 100 | 100 | 0.7 s | 0 | 0 ms |
-| Demo, mobile | 95 | 100 | 100 | 69 | 100 | 3.0 s | 0 | 60 ms |
+| Demo, mobile | 96 | 100 | 100 | 69 | 100 | 2.5 s | 0 | 130 ms |
 | Demo, desktop | 100 | 100 | 100 | 69 | 100 | 0.7 s | 0 | 0 ms |
 
-Demo mode SEO: the only failing check is `is-crawlable` ("Page is blocked from indexing"), on purpose.
+Demo mode SEO is 69 on purpose: the only failing check is `is-crawlable` ("Page is blocked from indexing").
 
-Mobile LCP: the hero photo paints at 120 to 190ms unthrottled. The simulated (default) profile puts it at 2.4 to 3.1s because it counts the framework JavaScript (React DOM and the App Router runtime, about 160KB compressed) requested before that paint. With real throttling applied it is 1.8s.
+Mobile LCP: the hero photo paints at 129 to 194ms unthrottled. The default simulated profile adds the framework JavaScript (React DOM and the App Router runtime, about 160KB compressed) to the LCP path, which is why it reads 2.5 to 3.1s across runs. With real slow 4G and 4x CPU throttling applied, LCP is 1.8s.
 
 Tap response (event timing, Moto G4 profile, 4x CPU throttle, 10 interactions including the first Block Builder open): worst 152ms.

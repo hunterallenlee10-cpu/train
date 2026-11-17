@@ -13,7 +13,7 @@ The plan, tokens and checklist for the train. purchase page concept. Source of t
 - [x] Phase 5: SEO (modes, robots, sitemap, llms.txt, JSON-LD), link preview image, favicon, 404, SEO-LAUNCH.md
 - [x] Phase 6: Lighthouse mobile and desktop, live and demo, on production builds
 - [x] Review 2: juror scored the full page 74/100 (blank photos were a capture artifact of the opacity reveal, now transform-only). Fixed: phone mural band, builder started blocks shown as "Started" not struck, availability line moved up, day-chip scroll cue, removed alternateName, founder and InStock from JSON-LD, gift card wording, request grammar
-- [ ] Phase 7: final review against the checklist, commit, ready for Vercel as `train-ocmd-concept`
+- [x] Phase 7: final review against the checklist, commit, ready for Vercel as `train-ocmd-concept`
 
 After every phase: `npm run check`, screenshots at 1440 and 375, look, fix the three weakest things, commit.
 
@@ -48,16 +48,23 @@ Material: static speckle on paper (tiny inline SVG), drip shapes under the pass 
 Motion: only the garage door (hero) and Block Math (slider glide). Everything else: hover/press, CSS reveals behind reduced-motion and support checks.
 
 ## Final review checklist (section 10)
-- [ ] With JavaScript switched off, the three passes and their prices are still on the page.
-- [ ] The hero alone would sell the job. The garage door plays once and the photo behind it is his real garage. On a 375px screen the headline and "Book a Block" are visible without scrolling.
-- [ ] Block Math gives $25, $69, $94, $99 and $99 for 1, 3, 4, 5 and 12, and works with mouse, touch and keyboard.
-- [ ] Every button on the page goes somewhere new. No button links to the page it is on.
-- [ ] Every "Book a Block" opens the Block Builder with the right pre-selects. The last step never claims a booking.
-- [ ] Every item in "Things only this business has" is on the page.
-- [ ] Zero em dashes, zero "--", zero stock or AI images, zero invented facts, no phone number, no reviews, no spot counts.
-- [ ] 2 fonts, the token palette only, motion in only 2 sections, no cursor effects or loading intro.
-- [ ] Mobile at 375px: no overflow, burger works, sticky bar works and never covers focus. A keyboard-only pass and a 200% zoom pass both work.
-- [ ] Demo mode serves noindex, nofollow in the tag and the header, with the concept footer line. Live mode serves index, follow, the sitemap and no concept line.
-- [ ] The link preview image and favicon are his.
-- [ ] Lighthouse SEO is 100 in live mode on mobile and desktop, and the other three are 90 or higher.
-- [ ] One h1 with the service and the town. Title and description as written in section 7. JSON-LD validates and claims nothing untrue.
+- [x] With JavaScript switched off, the three passes and their prices are still on the page.
+- [x] The hero alone would sell the job. The garage door plays once and the photo behind it is his real garage. On a 375px screen the headline and "Book a Block" are visible without scrolling.
+- [x] Block Math gives $25, $69, $94, $99 and $99 for 1, 3, 4, 5 and 12, and works with mouse, touch and keyboard.
+- [x] Every button on the page goes somewhere new. No button links to the page it is on.
+- [x] Every "Book a Block" opens the Block Builder with the right pre-selects. The last step never claims a booking.
+- [x] Every item in "Things only this business has" is on the page.
+- [x] Zero em dashes, zero "--", zero stock or AI images, zero invented facts, no phone number, no reviews, no spot counts.
+- [x] 2 fonts, the token palette only, motion in only 2 sections, no cursor effects or loading intro.
+- [x] Mobile at 375px: no overflow, burger works, sticky bar works and never covers focus. A keyboard-only pass and a 200% zoom pass both work.
+- [x] Demo mode serves noindex, nofollow in the tag and the header, with the concept footer line. Live mode serves index, follow, the sitemap and no concept line.
+- [x] The link preview image and favicon are his.
+- [x] Lighthouse SEO is 100 in live mode on mobile and desktop, and the other three are 90 or higher.
+- [x] One h1 with the service and the town. Title and description as written in section 7. JSON-LD validates and claims nothing untrue.
+
+### Evidence for the checklist (final build)
+- `npm run check` 25/25 in demo mode (reports/check-demo.txt), JS-off passes check included. In live mode 24/25: the only failure is the DRAFT items still waiting on Evan (reports/check-live.txt).
+- `npm run flow` 60/60: every builder trigger and its pre-select, the honest last step, focus trap, Esc, scroll lock, sticky bar visibility and focus, burger, reduced motion.
+- Block Math: unit tests for 1, 3, 4, 5, 12; keyboard (Home, End, arrows), +/- buttons, mouse drag, touch tap.
+- Keyboard pass: 89 tab stops, all with a visible focus ring. No horizontal overflow at 320, 375, 640 (200% zoom of 1280), 768, 1024, 1440.
+- Lighthouse: reports/lighthouse/SUMMARY.md. Structured data: reports/structured-data-validation.md. Headers: reports/demo-headers.txt, reports/live-checks.txt.

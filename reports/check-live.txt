@@ -1,0 +1,31 @@
+
+> train-ocmd-concept@0.1.0 check
+> node scripts/check.mjs
+
+PASS  Home responds 200                                                 status 200
+PASS  Exactly one h1                                                    Private gym passes · Ocean City, MD Pick a pass. Book a block.
+PASS  h1 holds "private gym passes" and "Ocean City, MD"                
+PASS  Headings step down in order                                       1,2,3,3,3,2,2,3,3,3,3,2,3,3,2,2,2,3,3,3,3,3,3,3,3,3,3,2,2,2
+PASS  No broken anchors                                                 
+PASS  No link points back at this page                                  0 found
+PASS  No broken internal links                                          1 checked
+PASS  Every link says where it goes                                     
+PASS  No leftover blanks or placeholder text                            
+PASS  No em dashes or double hyphens                                    
+PASS  No "booked", "confirmed" or "paid"                                
+PASS  No hype words or #1 claims                                        
+PASS  Alt text and width/height on every image                          13 images
+PASS  A sizes value on every optimised image                            
+PASS  Only the real photos and logos are used                           
+PASS  Email on the page matches lib/business.ts                         
+PASS  No other email address                                            
+PASS  Full address on the page matches lib/business.ts                  
+PASS  No phone number or tel/sms links                                  
+PASS  Price $25 for Drop-In is on the page                              
+PASS  Price $69 for 3-Pack is on the page                               
+PASS  Price $99 for Train Unlimited is on the page                      
+PASS  With JavaScript off, the three passes and prices are on the page  checked inside #passes
+PASS  Pricing unit tests pass                                           Tests  7 passed (7)
+FAIL  No DRAFT items in live mode                                       components/BlockBuilder/Steps.tsx:52, components/BlockMath/BlockMath.tsx:170, components/JsonLd.tsx:50, lib/business.ts:41, lib/business.ts:47, lib/business.ts:55, lib/business.ts:58, lib/business.ts:90, lib/business.ts:99, lib/business.ts:108, lib/business.ts:114, lib/business.ts:117, lib/faq.ts:37, lib/faq.ts:42, lib/pricing.ts:18
+
+24/25 checks passed against http://localhost:3000
